@@ -6,7 +6,6 @@ const navigation = [
   { label: "Research", href: "/research" },
   { label: "People", href: "/people" },
   { label: "Publications", href: "/publications" },
-  { label: "Community", href: "/community" },
 ];
 
 export function SiteHeader() {
@@ -28,6 +27,16 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <details className="nav-more">
+            <summary>More</summary>
+            <div className="nav-more-panel">
+              <Link href="/#software">Software & patents</Link>
+              <Link href="/#courses">Courses</Link>
+              <Link href="/#outreach">Outreach</Link>
+              <Link href="/#media">Media & press</Link>
+              <Link href="/#contact">Contact</Link>
+            </div>
+          </details>
           <a className="nav-stanford" href="https://ee.stanford.edu/">
             Stanford EE <span aria-hidden="true">↗</span>
           </a>

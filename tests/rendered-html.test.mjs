@@ -17,6 +17,10 @@ test("exports the finished homepage", async () => {
   assert.match(html, /Weissman Research Group/);
   assert.match(html, /Explore our research/);
   assert.match(html, /H\(X\)/);
+  assert.match(html, /id="software"[^>]*>.*Software &amp; patents/is);
+  assert.match(html, /id="courses"[^>]*>.*At the board/is);
+  assert.match(html, /id="outreach"[^>]*>.*A wider circle of ideas/is);
+  assert.match(html, /id="media"[^>]*>.*When theory enters culture/is);
   assert.match(html, /property="og:image"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/i);
 });
