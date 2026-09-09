@@ -14,7 +14,7 @@ export function SiteHeader() {
       <div className="header-inner">
         <Link className="wordmark" href="/" aria-label="Weissman Research Group home">
           <span className="wordmark-mark" aria-hidden="true">
-            W
+            <span>I<sup>3</sup></span>
           </span>
           <span>
             <strong>Weissman</strong>
@@ -30,11 +30,11 @@ export function SiteHeader() {
           <details className="nav-more">
             <summary>More</summary>
             <div className="nav-more-panel">
-              <Link href="/#software">Software & patents</Link>
-              <Link href="/#courses">Courses</Link>
-              <Link href="/#outreach">Outreach</Link>
-              <Link href="/#media">Media & press</Link>
-              <Link href="/#contact">Contact</Link>
+              <Link href="/software">Software & patents</Link>
+              <Link href="/courses">Courses</Link>
+              <Link href="/outreach">Outreach</Link>
+              <Link href="/media">Media & press</Link>
+              <a href="mailto:tsachy@stanford.edu">Contact</a>
             </div>
           </details>
           <a className="nav-stanford" href="https://ee.stanford.edu/">
@@ -77,7 +77,7 @@ export function SiteFooter() {
       </div>
       <div className="footer-bottom">
         <span>© 2026 Stanford University</span>
-        <span className="compiled">Last compiled: August 2026 · Q.E.D.</span>
+        <span className="compiled">Last compiled: September 2026 · Q.E.D.</span>
       </div>
     </footer>
   );

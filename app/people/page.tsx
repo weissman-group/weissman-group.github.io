@@ -15,13 +15,9 @@ export default function PeoplePage() {
     <main id="main-content">
       <PageHeader
         compact
-        eyebrow="People · The group"
-        title={
-          <>
-            Theory is a <em>team sport.</em>
-          </>
-        }
-        description="A group of researchers working across information theory, compression, learning, inference, and scientific applications."
+        eyebrow="Weissman Research Group"
+        title="People"
+        description="Students, researchers, visitors, and alumni of the Tsachy Weissman research group at Stanford."
       />
 
       <div className="content-section">

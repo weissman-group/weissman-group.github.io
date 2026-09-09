@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHeader } from "../site-components";
+import { PageHeader, SectionHeading } from "../site-components";
 import { publications, researchAreas } from "../site-data";
 
 export const metadata: Metadata = {
@@ -25,6 +25,11 @@ export default function ResearchPage() {
       />
 
       <div className="content-section">
+        <SectionHeading
+          number="01"
+          kicker="Research directions"
+          title="Four questions about information."
+        />
         <div className="theorem-box">
           <span className="theorem-label">Guiding problem.</span>
           <p>

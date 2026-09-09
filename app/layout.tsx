@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { SiteFooter, SiteHeader } from "./site-components";
 import "./globals.css";
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "http://localhost:3000";
+const siteOrigin =
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://weissman-group.github.io";
 
 export const dynamic = "force-static";
 
