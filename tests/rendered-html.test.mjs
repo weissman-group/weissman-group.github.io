@@ -3,6 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const clientRoot = new URL("../dist/client/", import.meta.url);
+const appRoot = new URL("../app/", import.meta.url);
 
 async function readRoute(route = "") {
   const filename = route ? `${route}.html` : "index.html";
@@ -82,4 +83,17 @@ test("includes GitHub Pages and metadata assets", async () => {
     access(new URL("og.png", clientRoot)),
     access(new URL("robots.txt", clientRoot)),
   ]);
+});
+
+test("uses full document navigation on GitHub Pages", async () => {
+  const navigationSources = await Promise.all([
+    readFile(new URL("minimal-home.tsx", appRoot), "utf8"),
+    readFile(new URL("site-components.tsx", appRoot), "utf8"),
+    readFile(new URL("not-found.tsx", appRoot), "utf8"),
+  ]);
+
+  for (const source of navigationSources) {
+    assert.doesNotMatch(source, /from ["']next\/link["']/);
+    assert.doesNotMatch(source, /<\/?Link\b/);
+  }
 });

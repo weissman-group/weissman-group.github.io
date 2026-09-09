@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { I3Mark } from "./i3-mark";
 
 const primaryDestinations = [
@@ -99,22 +98,22 @@ export default function MinimalHome() {
             scientific systems more capable.
           </p>
           <div className="i3-actions">
-            <Link className="i3-primary-action" href="/research">
+            <a className="i3-primary-action" href="/research">
               Explore our research <span aria-hidden="true">→</span>
-            </Link>
-            <Link className="i3-secondary-action" href="/people">
+            </a>
+            <a className="i3-secondary-action" href="/people">
               Meet the group
-            </Link>
+            </a>
           </div>
         </div>
 
         <nav className="i3-destinations" aria-label="Explore the group">
           {primaryDestinations.map((destination) => (
-            <Link href={destination.href} key={destination.href}>
+            <a href={destination.href} key={destination.href}>
               <DestinationIcon kind={destination.icon} />
               <strong>{destination.title}</strong>
               <span className="i3-destination-arrow" aria-hidden="true">↗</span>
-            </Link>
+            </a>
           ))}
         </nav>
       </section>

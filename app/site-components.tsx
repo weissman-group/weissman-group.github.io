@@ -1,4 +1,4 @@
-import Link from "next/link";
+/* eslint-disable @next/next/no-html-link-for-pages -- GitHub Pages cannot serve Vinext's RSC navigation requests, so internal links must perform full document loads. */
 import type { ReactNode } from "react";
 import type { Person, Publication, ResearchArea } from "./site-data";
 import { ThemeToggle } from "./theme-toggle";
@@ -22,7 +22,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link className="wordmark" href="/" aria-label="Weissman Research Group home">
+        <a className="wordmark" href="/" aria-label="Weissman Research Group home">
           <span className="wordmark-mark" aria-hidden="true">
             <span>I<sup>3</sup></span>
           </span>
@@ -30,13 +30,13 @@ export function SiteHeader() {
             <strong>Weissman</strong>
             <small>Research Group</small>
           </span>
-        </Link>
+        </a>
         <div className="header-actions">
           <nav className="desktop-navigation" aria-label="Primary navigation">
             {navigation.map((item) => (
-              <Link href={item.href} key={item.href}>
+              <a href={item.href} key={item.href}>
                 {item.label}
-              </Link>
+              </a>
             ))}
             <details className="nav-more">
               <summary>More</summary>
@@ -45,7 +45,7 @@ export function SiteHeader() {
                   item.href.startsWith("mailto:") ? (
                     <a href={item.href} key={item.href}>{item.label}</a>
                   ) : (
-                    <Link href={item.href} key={item.href}>{item.label}</Link>
+                    <a href={item.href} key={item.href}>{item.label}</a>
                   ),
                 )}
               </div>
@@ -56,14 +56,14 @@ export function SiteHeader() {
             <summary>Menu</summary>
             <nav aria-label="Mobile navigation">
               {navigation.map((item) => (
-                <Link href={item.href} key={item.href}>{item.label}</Link>
+                <a href={item.href} key={item.href}>{item.label}</a>
               ))}
               <span className="mobile-navigation-label">More</span>
               {moreNavigation.map((item) =>
                 item.href.startsWith("mailto:") ? (
                   <a href={item.href} key={item.href}>{item.label}</a>
                 ) : (
-                  <Link href={item.href} key={item.href}>{item.label}</Link>
+                  <a href={item.href} key={item.href}>{item.label}</a>
                 ),
               )}
             </nav>
@@ -158,9 +158,9 @@ export function SectionHeading({
         <h2>{title}</h2>
       </div>
       {action ? (
-        <Link className="text-link heading-link" href={action.href}>
+        <a className="text-link heading-link" href={action.href}>
           {action.label} <span aria-hidden="true">→</span>
-        </Link>
+        </a>
       ) : null}
     </div>
   );
