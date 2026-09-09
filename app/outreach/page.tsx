@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHeader, SectionHeading } from "../site-components";
+import { PageHeader } from "../site-components";
 
 export const metadata: Metadata = {
   title: "Outreach",
@@ -32,39 +32,32 @@ export default function OutreachPage() {
     <main id="main-content">
       <PageHeader
         compact
-        eyebrow="Outreach"
-        title={
-          <>
-            A wider circle of <em>ideas.</em>
-          </>
-        }
+        title="Outreach"
         description="Programs that invite new communities into information science, research, and public conversation."
       />
 
-      <section className="content-section">
-        <SectionHeading
-          number="01"
-          kicker="Beyond the lab"
-          title="A wider circle of ideas."
-        />
-        <div className="outreach-grid">
+      <section className="content-section editorial-page">
+        <div className="editorial-intro">
+          <h2>Initiatives</h2>
+          <p>Programs and communities connected to the group.</p>
+        </div>
+
+        <div className="editorial-list">
           {initiatives.map((initiative, index) => (
             <a
-              className="outreach-card"
+              className="editorial-row"
               href={initiative.href}
               key={initiative.title}
             >
-              <span className="outreach-index">
+              <span className="editorial-index">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <div className="outreach-orbit" aria-hidden="true">
-                <i />
-                <i />
-                <i />
+              <div className="editorial-title">
+                <p>Initiative</p>
+                <h3>{initiative.title}</h3>
               </div>
-              <h3>{initiative.title}</h3>
-              <p>{initiative.text}</p>
-              <span className="outreach-link">Visit initiative ↗</span>
+              <p className="editorial-description">{initiative.text}</p>
+              <span className="editorial-arrow" aria-hidden="true">↗</span>
             </a>
           ))}
         </div>

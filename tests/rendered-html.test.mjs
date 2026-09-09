@@ -105,3 +105,23 @@ test("uses full document navigation on GitHub Pages", async () => {
     assert.doesNotMatch(source, /<\/?Link\b/);
   }
 });
+
+test("renders the standalone news, outreach, and media indexes", async () => {
+  const [news, outreach, media] = await Promise.all([
+    readRoute("news"),
+    readRoute("outreach"),
+    readRoute("media"),
+  ]);
+
+  assert.match(news, /Group updates/);
+  assert.match(news, /No announcements have been posted yet/);
+  assert.match(outreach, /Stanford Compression Forum/);
+  assert.match(outreach, /STEM to SHTEM/);
+  assert.match(media, /Selected coverage/);
+  assert.match(media, /A Made-For-TV Compression Algorithm/);
+
+  for (const html of [news, outreach, media]) {
+    assert.match(html, /editorial-page/);
+    assert.doesNotMatch(html, /media-home|media-signal|outreach-orbit|outreach-card|news-intro/);
+  }
+});

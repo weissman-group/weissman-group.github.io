@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHeader, SectionHeading } from "../site-components";
+import { PageHeader } from "../site-components";
 
 export const metadata: Metadata = {
   title: "Media & Press",
@@ -37,37 +37,28 @@ export default function MediaPage() {
     <main id="main-content">
       <PageHeader
         compact
-        eyebrow="Media & press"
-        title={
-          <>
-            When theory enters <em>culture.</em>
-          </>
-        }
+        title="Media & press"
         description="From the mathematics behind HBO’s Silicon Valley to the real-world future of compression."
       />
 
-      <section className="content-section media-home">
-        <SectionHeading
-          number="01"
-          kicker="Media & press"
-          title="Selected coverage."
-        />
-        <div className="media-grid">
+      <section className="content-section editorial-page">
+        <div className="editorial-intro">
+          <h2>Selected coverage</h2>
+          <p>Articles and interviews about the group’s work and its broader influence.</p>
+        </div>
+
+        <div className="editorial-list">
           {media.map((item, index) => (
-            <a className="media-card" href={item.href} key={item.title}>
-              <div className="media-signal" aria-hidden="true">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-              </div>
-              <p>{item.source}</p>
-              <h3>{item.title}</h3>
-              <span className="media-arrow" aria-hidden="true">
-                ↗
+            <a className="editorial-row" href={item.href} key={item.title}>
+              <span className="editorial-index">
+                {String(index + 1).padStart(2, "0")}
               </span>
+              <div className="editorial-title">
+                <p>{item.source}</p>
+                <h3>{item.title}</h3>
+              </div>
+              <span className="editorial-spacer" aria-hidden="true" />
+              <span className="editorial-arrow" aria-hidden="true">↗</span>
             </a>
           ))}
         </div>

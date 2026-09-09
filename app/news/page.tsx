@@ -9,26 +9,66 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-static";
 
+type NewsItem = {
+  date: string;
+  title: string;
+  text: string;
+  href?: string;
+};
+
+// Add confirmed group announcements here. Newest items should come first.
+const newsItems: NewsItem[] = [];
+
 export default function NewsPage() {
   return (
     <main id="main-content">
       <PageHeader
         compact
-        eyebrow="News"
-        title="From the group"
-        description="People, internships, awards, talks, and new work from across the Weissman Research Group."
+        title="News"
+        description="Updates about group members, awards, talks, internships, and new work."
       />
 
-      <section className="content-section news-intro">
-        <div>
-          <p className="eyebrow">Group updates</p>
-          <h2>News will appear here.</h2>
+      <section className="content-section editorial-page">
+        <div className="editorial-intro">
+          <h2>Group updates</h2>
+          <p>Short announcements from across the Weissman Research Group.</p>
         </div>
-        <p>
-          This page is ready for short, dated updates about group members and
-          their work. We have intentionally left it free of placeholder claims
-          until the group confirms the first set of announcements.
-        </p>
+
+        {newsItems.length > 0 ? (
+          <div className="editorial-list">
+            {newsItems.map((item, index) => {
+              const content = (
+                <>
+                  <span className="editorial-index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="editorial-title">
+                    <p>{item.date}</p>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <p className="editorial-description">{item.text}</p>
+                  {item.href ? (
+                    <span className="editorial-arrow" aria-hidden="true">↗</span>
+                  ) : null}
+                </>
+              );
+
+              return item.href ? (
+                <a className="editorial-row" href={item.href} key={item.title}>
+                  {content}
+                </a>
+              ) : (
+                <article className="editorial-row" key={item.title}>
+                  {content}
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="editorial-empty">
+            <p>No announcements have been posted yet.</p>
+          </div>
+        )}
       </section>
     </main>
   );
