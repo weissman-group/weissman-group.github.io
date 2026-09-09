@@ -229,18 +229,19 @@ export const people = {
       name: "Abhiram Gorle",
       detail: "Research summary forthcoming.",
       href: "https://abhiram3001.github.io/",
-      image: "/people/abhiram-gorle.jpg",
+      image: "/people/abhiram-gorle.png",
     },
     {
       name: "Connor Ding",
       detail: "Research summary forthcoming.",
       href: "https://www.czsding.com/",
-      image: "/people/connor-ding.png",
+      image: "/people/connor-ding.png?v=20260909",
     },
     {
       name: "Jiwon Jeong",
       detail: "Research summary forthcoming.",
       href: "https://www.linkedin.com/in/jiwon-jeong-865b2422b/",
+      image: "/people/jiwon-jeong.png",
     },
     {
       name: "Matthew Ho",
@@ -252,7 +253,7 @@ export const people = {
       name: "Naomi Sagan",
       detail: "Research summary forthcoming.",
       href: "https://www.linkedin.com/in/naomisagan/",
-      image: "/people/naomi-sagan.png",
+      image: "/people/naomi-sagan.png?v=20260909",
     },
     {
       name: "Yasmine Omri",

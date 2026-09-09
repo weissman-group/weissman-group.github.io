@@ -75,6 +75,14 @@ test("renders the reconciled people directory", async () => {
   assert.match(html, /Divija Hasteer/);
   assert.doesNotMatch(html, /Atindra Jha|MS students|Undergraduate researchers/i);
   assert.match(html, /<img[^>]+alt="Tsachy Weissman"/i);
+  for (const portrait of [
+    "abhiram-gorle.png",
+    "connor-ding.png",
+    "jiwon-jeong.png",
+    "naomi-sagan.png",
+  ]) {
+    assert.match(html, new RegExp(`/people/${portrait.replace(".", "\\.")}`));
+  }
 });
 
 test("includes GitHub Pages and metadata assets", async () => {
