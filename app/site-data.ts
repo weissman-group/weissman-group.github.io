@@ -24,6 +24,13 @@ export type Person = {
   name: string;
   detail?: string;
   href?: string;
+  image?: string;
+  year?: string;
+};
+
+export type PeopleGroup = {
+  title: string;
+  people: Person[];
 };
 
 export const researchAreas: ResearchArea[] = [
@@ -212,44 +219,199 @@ publications.sort((a, b) => b.year - a.year);
 
 export const people = {
   phd: [
-    { name: "Aayush Rajesh", href: "https://aayush2003.github.io/" },
-    { name: "Naomi Isabella Sagan" },
-    { name: "Jiwon Jeong", detail: "Co-advised" },
-    { name: "Lara Arikan", detail: "Doctoral-program advisee" },
+    {
+      name: "Aayush Rajesh",
+      detail: "Research summary forthcoming.",
+      href: "https://aayush2003.github.io/",
+      image: "/people/aayush-rajesh.jpg",
+    },
+    {
+      name: "Abhiram Gorle",
+      detail: "Research summary forthcoming.",
+      href: "https://abhiram3001.github.io/",
+      image: "/people/abhiram-gorle.jpg",
+    },
     {
       name: "Connor Ding",
-      detail: "Doctoral-program advisee",
+      detail: "Research summary forthcoming.",
       href: "https://www.czsding.com/",
+      image: "/people/connor-ding.png",
     },
-    { name: "Yiqi Jiang", detail: "Doctoral-program advisee" },
-    { name: "Sahasrajit Sarmasarkar", detail: "Doctoral-program advisee" },
-  ] satisfies Person[],
-  affiliates: [
-    { name: "Yasmine Omri", detail: "Tambe Lab collaborator" },
-    { name: "Sagnik Bhattacharya", detail: "Cioffi Group collaborator" },
-    { name: "Abhiram Rao Gorle", detail: "Cioffi Group collaborator" },
-  ] satisfies Person[],
-  students: [
-    { name: "Divija Hasteer" },
-    { name: "Atindra Jha", detail: "Undergraduate researcher" },
+    {
+      name: "Jiwon Jeong",
+      detail: "Research summary forthcoming.",
+      href: "https://www.linkedin.com/in/jiwon-jeong-865b2422b/",
+    },
+    {
+      name: "Matthew Ho",
+      detail: "Research summary forthcoming.",
+      href: "https://www.linkedin.com/in/ho-matthew-10",
+      image: "/people/matthew-ho.jpg",
+    },
+    {
+      name: "Naomi Sagan",
+      detail: "Research summary forthcoming.",
+      href: "https://www.linkedin.com/in/naomisagan/",
+      image: "/people/naomi-sagan.png",
+    },
+    {
+      name: "Yasmine Omri",
+      detail: "Research summary forthcoming.",
+      href: "https://tambelab.stanford.edu/people/yasmine-omri",
+      image: "/people/yasmine-omri.jpg",
+    },
   ] satisfies Person[],
   visitors: [
-    { name: "Jaeseok Byun", detail: "Seoul National University" },
-    { name: "Hao Kang", detail: "Georgia Institute of Technology" },
-    { name: "Szymon Kobus", detail: "Imperial College London" },
+    {
+      name: "Jaeseok Byun",
+      detail: "Seoul National University",
+      href: "https://sites.google.com/view/jaeseokbyun",
+      image: "/people/jaeseok-byun-photo.png",
+      year: "2025",
+    },
+    {
+      name: "Hao Kang",
+      detail: "Georgia Institute of Technology",
+      href: "https://haokang-timmy.github.io/",
+      image: "/people/hao-kang.png",
+      year: "2025",
+    },
+    {
+      name: "Szymon Kobus",
+      detail: "Imperial College London",
+      href: "https://www.imperial.ac.uk/information-processing-and-communications-lab/people/szymon-kobus/",
+      image: "/people/szymon-kobus.jpg",
+      year: "2025",
+    },
+  ] satisfies Person[],
+  collaborators: [
+    {
+      name: "Amit Yadav",
+      detail: "Collaborator · formerly Meta",
+      href: "https://sites.google.com/view/amit-yadav/home",
+      image: "/people/amit-yadav.jpg",
+    },
+    {
+      name: "Taesup Moon",
+      detail: "Seoul National University",
+      href: "https://ece.snu.ac.kr/en/research-faculty/faculty/fulltime?md=view&profid=p870",
+      image: "/people/taesup-moon.jpg",
+    },
+    {
+      name: "Thierry Tambe",
+      detail: "Stanford University",
+      href: "https://tambelab.stanford.edu/people/thierry-tambe",
+      image: "/people/thierry-tambe.jpg",
+    },
   ] satisfies Person[],
 };
 
-export const alumniHighlights: Person[] = [
-  { name: "Pumiao Yan" },
-  { name: "Berivan Isik" },
-  { name: "Shubham Chandak" },
-  { name: "Yanjun Han" },
-  { name: "Jiantao Jiao" },
-  { name: "Thomas Courtade" },
-  { name: "Kartik Venkat" },
-  { name: "Himanshu Asnani" },
-  { name: "Taesup Moon" },
-  { name: "Shirin Jalali" },
-  { name: "Haim Permuter" },
+export const formerPeople: PeopleGroup[] = [
+  {
+    title: "PhD · Primary advisees",
+    people: [
+      { name: "Berivan Isik", href: "https://www.linkedin.com/in/berivan-isik-439a3b122" },
+      { name: "Jay Mardia", href: "https://sites.google.com/view/jaymardia/home" },
+      { name: "Pulkit Tandon", href: "https://www.linkedin.com/in/pulkit-tandon-8621a3a8" },
+      { name: "Meltem Tolunay", href: "https://www.linkedin.com/in/meltem-tolunay-278758127/" },
+      { name: "Noah Huffman", href: "https://www.linkedin.com/in/noahhuffman" },
+      { name: "Yihui Quek", href: "https://sites.google.com/view/yihui-quek/" },
+      { name: "Shubham Chandak", href: "https://shubhamchandak94.github.io/" },
+      { name: "Yanjun Han", href: "https://yanjunhan2021.github.io/index.html" },
+      { name: "Himanshu Asnani", href: "http://www.himanshuasnani.com" },
+      { name: "Asaf Cohen", href: "http://www.bgu.ac.il/~coasaf/Asaf_Cohens_homepage/Home.html" },
+      { name: "Irena Fischer-Hwang", href: "https://irenatfh.github.io" },
+      { name: "George Gemelos", href: "https://www.linkedin.com/in/george-gemelos-1977521/" },
+      { name: "Shirin Jalali", href: "https://sites.google.com/site/shirinjalali/" },
+      { name: "Jiantao Jiao", href: "https://people.eecs.berkeley.edu/~jiantao/" },
+      { name: "Vinith Misra", href: "http://vinmisra.github.io/" },
+      { name: "Albert No", href: "https://www.linkedin.com/in/albert-no-a6047071" },
+      { name: "Idoia Ochoa", href: "http://idoia.ece.illinois.edu/" },
+      { name: "Haim Permuter", href: "http://www.ee.bgu.ac.il/~haimp/index.html" },
+      { name: "Kamakshi Sivaramakrishnan", href: "https://www.linkedin.com/in/kamakshisivaramakrishnan/" },
+      { name: "Kedar Tatwawadi", href: "http://web.stanford.edu/~kedart/" },
+      { name: "Kartik Venkat", href: "https://www.linkedin.com/in/kartik-venkat-b239547b" },
+      { name: "Pumiao Yan", href: "https://www.linkedin.com/in/pumiao-yan/" },
+    ],
+  },
+  {
+    title: "PhD · Secondary advisees",
+    people: [
+      { name: "Alon Kipnis", href: "https://cs.idc.ac.il/~kipnis/" },
+      { name: "Mainak Chowdhury", href: "http://web.stanford.edu/~mainakch/" },
+      { name: "Yeow-Khiang Chia", href: "http://researcher.ibm.com/researcher/view.php?person=sg-ykchia" },
+      { name: "Paul Cuff", href: "https://www.princeton.edu/~cuff/" },
+      { name: "Alexandros Manolakos", href: "https://scholar.google.com/citations?user=i-g1zC0AAAAJ&hl=en" },
+      { name: "Dmitri Pavlichin", href: "https://www.dmitripavlichin.com" },
+      { name: "Styrmir Sigurjonsson", href: "https://www.linkedin.com/in/styrmir-sigurjonsson/" },
+      { name: "Han-I Su", href: "https://www.linkedin.com/in/hanisu/" },
+      { name: "Rui Zhang" },
+      { name: "Lei Zhao" },
+      { name: "Sagnik Bhattacharya", href: "https://www.linkedin.com/in/sagnik-bhattacharya-8316977a" },
+    ],
+  },
+  {
+    title: "Masters",
+    people: [
+      { name: "Qìngxī Mèng (孟庆熹)" },
+      { name: "Yair Carmon", href: "http://scholar.google.com/citations?user=kTKmpT0AAAAJ&hl=en" },
+      { name: "Oren Zeitli" },
+      { name: "Divija Hasteer", href: "https://www.linkedin.com/in/divijahasteer/" },
+    ],
+  },
+  {
+    title: "Postdoctoral advisees",
+    people: [
+      { name: "Dmitri Pavlichin", href: "https://www.dmitripavlichin.com" },
+      { name: "Dror Baron", href: "http://people.engr.ncsu.edu/dzbaron/" },
+      { name: "Thomas Courtade", href: "http://www.eecs.berkeley.edu/Faculty/Homepages/courtade.html" },
+      { name: "Mikel Hernaez", href: "https://scholar.google.es/citations?user=-mh8RQ8AAAAJ&hl=en" },
+      { name: "Peng Liu" },
+      { name: "Amir Ingber", href: "http://scholar.google.com/citations?user=0IkkBzQAAAAJ&hl=en" },
+      { name: "Lele Wang", href: "https://sites.google.com/site/wanglele1986/" },
+      { name: "Zhiying Wang", href: "http://faculty.sites.uci.edu/zhiying/" },
+    ],
+  },
+  {
+    title: "Collaborators",
+    people: [
+      { name: "Rami Atar", href: "http://webee.technion.ac.il/people/atar/" },
+      { name: "Salman Avestimehr", href: "http://www-bcf.usc.edu/~avestime/Home.html" },
+      { name: "Shraga I. Bross", href: "http://engineering.biu.ac.il/en/node/973" },
+      { name: "Jun Chen", href: "http://www.ece.mcmaster.ca/~junchen/" },
+      { name: "Thomas Courtade", href: "http://www.ece.berkeley.edu/Faculty/Homepages/courtade.html" },
+      { name: "Amir Dembo", href: "http://www-stat.stanford.edu/~adembo/" },
+      { name: "Yonina Eldar", href: "http://webee.technion.ac.il/people/YoninaEldar/index.php" },
+      { name: "Abbas El Gamal", href: "http://isl.stanford.edu/~abbas/" },
+      { name: "Vivek Farias", href: "http://web.mit.edu/vivekf/www/" },
+      { name: "Andrea Goldsmith", href: "http://www-ee.stanford.edu/~andrea/" },
+      { name: "Ankit Gupta", href: "http://www.math.wisc.edu/~gupta/" },
+      { name: "Jae-Young Kim" },
+      { name: "Young-Han Kim", href: "http://circuit.ucsd.edu/~yhk/" },
+      { name: "Kittipong Kittichokechai", href: "https://www.kth.se/profile/6313/" },
+      { name: "Amos Lapidoth", href: "http://people.ee.ethz.ch/~lapidoth/Amos_Lapidoth/Welcome.html" },
+      { name: "Shie Mannor", href: "http://www.ece.mcgill.ca/~smanno1/" },
+      { name: "Nuno Martins", href: "http://www.ece.umd.edu/meet/faculty/martins.php3" },
+      { name: "Neri Merhav", href: "http://web.stanford.edu/~tsachy/papers/rt_cvx_sig_proc.html" },
+      { name: "Ciamac Moallemi", href: "http://moallemi.com/ciamac/" },
+      { name: "Andrea Montanari", href: "http://www.stanford.edu/~montanar/" },
+      { name: "Chandra Nair", href: "http://chandra.ie.cuhk.edu.hk/" },
+      { name: "Tobias J. Oechtering", href: "http://www.kth.se/ees/omskolan/organisation/avdelningar/commth/aboutct/people/publicprofile.php?KthID=u1qyrsku" },
+      { name: "Erik Ordentlich", href: "https://scholar.google.com/citations?user=vMdZVmQAAAAJ&hl=en" },
+      { name: "Stephanie Pereira" },
+      { name: "Gadiel Seroussi", href: "http://www.msri.org/people/staff/gadiel/index.html" },
+      { name: "Shlomo Shamai", href: "http://webee.technion.ac.il/people/shamai/" },
+      { name: "Ilan Shomorony", href: "http://foie.ece.cornell.edu/~ilan/" },
+      { name: "Mikael Skoglund", href: "http://www.ee.kth.se/~skoglund/" },
+      { name: "Anelia Somekh-Baruch" },
+      { name: "Rajiv Soundararajan", href: "https://webspace.utexas.edu/rs6454/index.html" },
+      { name: "Yossef Steinberg", href: "http://www.graduate.technion.ac.il/Theses/Advisors.asp?Key=19697" },
+      { name: "Han-I Su", href: "http://www.stanford.edu/~hanisu/" },
+      { name: "Ben Van Roy", href: "http://www.stanford.edu/~bvr/" },
+      { name: "Sergio Verdu", href: "http://www.princeton.edu/~verdu/" },
+      { name: "Krishnamurthy Viswanathan", href: "http://www.hpl.hp.com/people/krishnamurthy_viswanathan/" },
+      { name: "Marcelo Weinberger", href: "http://www.hpl.hp.com/research/info_theory/marcelo_bio.htm" },
+      { name: "Golan Yona", href: "http://biozon.org/people/golan/" },
+    ],
+  },
 ];

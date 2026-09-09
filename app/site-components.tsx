@@ -1,11 +1,21 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Person, Publication, ResearchArea } from "./site-data";
+import { ThemeToggle } from "./theme-toggle";
 
 const navigation = [
   { label: "Research", href: "/research" },
   { label: "People", href: "/people" },
   { label: "Publications", href: "/publications" },
+  { label: "News", href: "/news" },
+  { label: "Outreach", href: "/outreach" },
+  { label: "Media & press", href: "/media" },
+];
+
+const moreNavigation = [
+  { label: "Software & patents", href: "/software" },
+  { label: "Contact", href: "mailto:tsachy@stanford.edu" },
+  { label: "Courses", href: "/courses" },
 ];
 
 export function SiteHeader() {
@@ -21,26 +31,44 @@ export function SiteHeader() {
             <small>Research Group</small>
           </span>
         </Link>
-        <nav aria-label="Primary navigation">
-          {navigation.map((item) => (
-            <Link href={item.href} key={item.href}>
-              {item.label}
-            </Link>
-          ))}
-          <details className="nav-more">
-            <summary>More</summary>
-            <div className="nav-more-panel">
-              <Link href="/software">Software & patents</Link>
-              <Link href="/courses">Courses</Link>
-              <Link href="/outreach">Outreach</Link>
-              <Link href="/media">Media & press</Link>
-              <a href="mailto:tsachy@stanford.edu">Contact</a>
-            </div>
+        <div className="header-actions">
+          <nav className="desktop-navigation" aria-label="Primary navigation">
+            {navigation.map((item) => (
+              <Link href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+            <details className="nav-more">
+              <summary>More</summary>
+              <div className="nav-more-panel">
+                {moreNavigation.map((item) =>
+                  item.href.startsWith("mailto:") ? (
+                    <a href={item.href} key={item.href}>{item.label}</a>
+                  ) : (
+                    <Link href={item.href} key={item.href}>{item.label}</Link>
+                  ),
+                )}
+              </div>
+            </details>
+          </nav>
+          <ThemeToggle />
+          <details className="mobile-navigation">
+            <summary>Menu</summary>
+            <nav aria-label="Mobile navigation">
+              {navigation.map((item) => (
+                <Link href={item.href} key={item.href}>{item.label}</Link>
+              ))}
+              <span className="mobile-navigation-label">More</span>
+              {moreNavigation.map((item) =>
+                item.href.startsWith("mailto:") ? (
+                  <a href={item.href} key={item.href}>{item.label}</a>
+                ) : (
+                  <Link href={item.href} key={item.href}>{item.label}</Link>
+                ),
+              )}
+            </nav>
           </details>
-          <a className="nav-stanford" href="https://ee.stanford.edu/">
-            Stanford EE <span aria-hidden="true">↗</span>
-          </a>
-        </nav>
+        </div>
       </div>
     </header>
   );
@@ -52,10 +80,9 @@ export function SiteFooter() {
       <div className="footer-grid">
         <div>
           <p className="footer-title">Weissman Research Group</p>
-          <p>
-            Electrical Engineering
-            <br />
-            Stanford University
+          <p className="footer-institution">
+            <a href="https://ee.stanford.edu/">Electrical Engineering ↗</a>
+            <span>Stanford University</span>
           </p>
         </div>
         <div>
@@ -90,7 +117,7 @@ export function PageHeader({
   children,
   compact = false,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   description: string;
   children?: ReactNode;
@@ -98,28 +125,15 @@ export function PageHeader({
 }) {
   return (
     <section className={`page-hero${compact ? " page-hero-compact" : ""}`}>
-      <div className="hero-registration" aria-hidden="true">
-        <span>WRG · 001</span>
-        <span>37.4275° N / 122.1697° W</span>
-      </div>
       <div className="hero-grid">
         <div>
-          <p className="eyebrow">{eyebrow}</p>
+          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
           <h1>{title}</h1>
         </div>
         <div className="hero-abstract">
-          <span className="abstract-label">Abstract</span>
           <p>{description}</p>
           {children}
         </div>
-      </div>
-      <div className="signal-rule" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
       </div>
     </section>
   );
@@ -204,7 +218,7 @@ export function PublicationRow({
 
 export function PeopleGrid({ people }: { people: Person[] }) {
   return (
-    <div className="people-grid">
+    <div className="member-grid">
       {people.map((person) => {
         const initials = person.name
           .split(" ")
@@ -213,23 +227,31 @@ export function PeopleGrid({ people }: { people: Person[] }) {
           .join("");
         const content = (
           <>
-            <span className="person-initials" aria-hidden="true">
-              {initials}
+            <span className="member-portrait" aria-hidden="true">
+              {person.image ? (
+                // A plain image keeps the static GitHub Pages export portable.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={person.image} alt="" loading="lazy" decoding="async" />
+              ) : (
+                <span className="member-placeholder">{initials}</span>
+              )}
             </span>
-            <span>
-              <strong>{person.name}</strong>
+            <span className="member-copy">
+              <strong>
+                {person.name}
+                {person.year ? <span className="member-year"> ({person.year})</span> : null}
+              </strong>
               {person.detail ? <small>{person.detail}</small> : null}
             </span>
-            {person.href ? <span aria-hidden="true">↗</span> : null}
           </>
         );
 
         return person.href ? (
-          <a className="person-row" href={person.href} key={person.name}>
+          <a className="member-card" href={person.href} key={person.name}>
             {content}
           </a>
         ) : (
-          <div className="person-row" key={person.name}>
+          <div className="member-card" key={person.name}>
             {content}
           </div>
         );

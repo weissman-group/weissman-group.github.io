@@ -19,7 +19,12 @@ test("exports the finished homepage", async () => {
   assert.match(html, /Information/);
   assert.match(html, /Intelligence/);
   assert.match(html, /Inference/);
-  assert.doesNotMatch(html, /Four questions about information|Recent papers|Theory is a team sport/i);
+  assert.match(html, /Toggle light and dark mode/);
+  assert.match(html, /href="\/news"/);
+  assert.doesNotMatch(
+    html,
+    /WRG \/ I|Three connected modes|Four questions about information|Recent papers|Theory is a team sport/i,
+  );
   assert.match(html, /property="og:image"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/i);
 });
@@ -29,6 +34,7 @@ test("exports every public route", async () => {
     "research",
     "people",
     "publications",
+    "news",
     "software",
     "courses",
     "outreach",
@@ -39,7 +45,35 @@ test("exports every public route", async () => {
     const html = await readRoute(route);
     assert.match(html, /Weissman Research Group/);
     assert.match(html, /<main[^>]*id="main-content"/i);
+    assert.doesNotMatch(html, /hero-registration|37\.4275|122\.1697|WRG001|WHG001/i);
   }
+});
+
+test("renders the reconciled people directory", async () => {
+  const html = await readRoute("people");
+
+  for (const name of [
+    "Aayush Rajesh",
+    "Abhiram Gorle",
+    "Connor Ding",
+    "Jiwon Jeong",
+    "Matthew Ho",
+    "Naomi Sagan",
+    "Yasmine Omri",
+    "Amit Yadav",
+    "Taesup Moon",
+    "Thierry Tambe",
+  ]) {
+    assert.match(html, new RegExp(name));
+  }
+
+  assert.match(html, /Jaeseok Byun/);
+  assert.match(html, /class="member-year"> \(<!-- -->2025<!-- -->\)/);
+  assert.match(html, /Pumiao Yan/);
+  assert.match(html, /Sagnik Bhattacharya/);
+  assert.match(html, /Divija Hasteer/);
+  assert.doesNotMatch(html, /Atindra Jha|MS students|Undergraduate researchers/i);
+  assert.match(html, /<img[^>]+alt="Tsachy Weissman"/i);
 });
 
 test("includes GitHub Pages and metadata assets", async () => {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader, PeopleGrid } from "../site-components";
-import { alumniHighlights, people } from "../site-data";
+import { formerPeople, people } from "../site-data";
 
 export const metadata: Metadata = {
   title: "People",
@@ -15,18 +15,23 @@ export default function PeoplePage() {
     <main id="main-content">
       <PageHeader
         compact
-        eyebrow="Weissman Research Group"
         title="People"
-        description="Students, researchers, visitors, and alumni of the Tsachy Weissman research group at Stanford."
+        description="Current and former members of the group."
       />
 
-      <div className="content-section">
-        <section className="pi-profile">
-          <div className="pi-monogram" aria-hidden="true">
-            TW
-          </div>
+      <div className="content-section people-page">
+        <section className="pi-profile-minimal">
+          <a
+            className="pi-portrait"
+            href="https://profiles.stanford.edu/itschak-weissman"
+            aria-label="Tsachy Weissman's Stanford profile"
+          >
+            {/* Official Stanford profile image. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/people/tsachy-weissman.jpg" alt="Tsachy Weissman" />
+          </a>
           <div className="pi-copy">
-            <p className="eyebrow">Principal investigator</p>
+            <p className="people-label">Principal investigator</p>
             <h2>Tsachy Weissman</h2>
             <p className="pi-title">
               Robert and Barbara Kleist Professor in the School of Engineering
@@ -36,12 +41,6 @@ export default function PeoplePage() {
               Stanford and founding director of the Stanford Compression
               Forum. He studies the science of information, with applications
               across genomics, neuroscience, learning, and technology.
-            </p>
-            <p>
-              An IEEE Fellow, he has received research and teaching awards from
-              the IEEE Information Theory and Communications societies. His
-              students have gone on to faculty roles, technical leadership, and
-              entrepreneurship.
             </p>
             <p>
               <a className="text-link" href="https://profiles.stanford.edu/itschak-weissman">
@@ -55,50 +54,42 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        <section className="people-section">
-          <div>
-            <p className="eyebrow">Current</p>
-            <h2>PhD advisees</h2>
+        <section className="roster-section" aria-labelledby="current-members">
+          <h2 id="current-members">Current</h2>
+
+          <div className="roster-group">
+            <h3>PhD students</h3>
+            <PeopleGrid people={people.phd} />
           </div>
-          <PeopleGrid people={people.phd} />
+
+          <div className="roster-group">
+            <h3>Visiting students</h3>
+            <PeopleGrid people={people.visitors} />
+          </div>
+
+          <div className="roster-group">
+            <h3>Collaborators</h3>
+            <PeopleGrid people={people.collaborators} />
+          </div>
         </section>
 
-        <section className="people-section">
-          <div>
-            <p className="eyebrow">Across groups</p>
-            <h2>Affiliated researchers</h2>
-          </div>
-          <PeopleGrid people={people.affiliates} />
-        </section>
-
-        <section className="people-section">
-          <div>
-            <p className="eyebrow">Extended group</p>
-            <h2>Students & visitors</h2>
-          </div>
-          <PeopleGrid people={[...people.students, ...people.visitors]} />
-        </section>
-
-        <section className="people-section">
-          <div>
-            <p className="eyebrow">Selected</p>
-            <h2>Alumni</h2>
-          </div>
-          <ul className="alumni-line">
-            {alumniHighlights.map((person) => (
-              <li key={person.name}>{person.name}</li>
+        <section className="former-directory" aria-labelledby="former-members">
+          <h2 id="former-members">Former</h2>
+          <div className="former-groups">
+            {formerPeople.map((group) => (
+              <section className="former-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <ul>
+                  {group.people.map((person) => (
+                    <li key={person.name}>
+                      {person.href ? <a href={person.href}>{person.name}</a> : person.name}
+                    </li>
+                  ))}
+                </ul>
+              </section>
             ))}
-          </ul>
+          </div>
         </section>
-
-        <div className="theorem-box">
-          <span className="theorem-label">Roster note.</span>
-          <p>
-            Research affiliations change quickly. This draft distinguishes
-            advisees, cross-group collaborators, and visitors; the group will
-            confirm the final launch roster.
-          </p>
-        </div>
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 # Weissman Research Group
 
-A formal research-group website for Tsachy Weissman’s group at Stanford, organized around the I³ theme: Information, Intelligence, and Inference. The site is built with React, TypeScript, and vinext, then exported as static HTML for GitHub Pages.
+A formal research-group website for Tsachy Weissman’s group at Stanford, organized around the I³ theme: Information, Intelligence, and Inference. The site includes persistent light and dark themes, is built with React, TypeScript, and vinext, and exports as static HTML for GitHub Pages.
 
 ## Pages
 
@@ -8,6 +8,7 @@ A formal research-group website for Tsachy Weissman’s group at Stanford, organ
 - Research — four research pillars with selected papers
 - People — PI, advisees, affiliates, visitors, and selected alumni
 - Publications — searchable and filterable recent-work archive
+- News — group-member updates, awards, talks, and internships
 - Software & Patents — implementations, estimators, and patent archive
 - Courses — teaching and current course links
 - Outreach — Compression Forum, STEM to SHTEM, and related initiatives
