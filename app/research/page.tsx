@@ -50,8 +50,8 @@ export default function ResearchPage() {
                 {area.number}
               </span>
               <div>
-                <p className="research-question">{area.question}</p>
                 <h2>{area.title}</h2>
+                <p className="research-question">{area.question}</p>
                 <p>{area.summary}</p>
                 <ul className="topic-list">
                   {area.topics.map((topic) => (

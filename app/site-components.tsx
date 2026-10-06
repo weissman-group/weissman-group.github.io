@@ -168,8 +168,8 @@ export function ResearchRow({ area }: { area: ResearchArea }) {
         {area.number}
       </span>
       <div>
-        <p className="research-question">{area.question}</p>
         <h3>{area.title}</h3>
+        <p className="research-question">{area.question}</p>
         <p>{area.summary}</p>
         <ul className="topic-list" aria-label={`${area.title} topics`}>
           {area.topics.map((topic) => (

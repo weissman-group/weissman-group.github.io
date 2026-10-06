@@ -125,7 +125,7 @@ test("renders the standalone news, outreach, and media indexes", async () => {
   assert.match(news, /SHTEM summer interns/);
   assert.match(news, /Aayush advances to Ph\.D\. candidacy/);
   assert.match(news, /2026 Knight-Hennessy Scholars cohort/);
-  assert.match(news, /Amazon’s neurosymbolic team/);
+  assert.match(news, /Jiwon, Matt and Naomi have begun internships at Amazon/);
   assert.match(news, /Information-computation trade-offs/);
   assert.match(news, /Three group presentations at ISIT 2025/);
   assert.match(news, /Three papers accepted at ISIT 2025/);
