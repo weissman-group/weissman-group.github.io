@@ -220,35 +220,41 @@ export function PeopleGrid({ people }: { people: Person[] }) {
           .map((part) => part[0])
           .slice(0, 2)
           .join("");
-        const content = (
-          <>
-            <span className="member-portrait" aria-hidden="true">
-              {person.image ? (
-                // A plain image keeps the static GitHub Pages export portable.
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={person.image} alt="" loading="lazy" decoding="async" />
-              ) : (
-                <span className="member-placeholder">{initials}</span>
-              )}
-            </span>
-            <span className="member-copy">
+        const portrait = (
+          <span className="member-portrait" aria-hidden="true">
+            {person.image ? (
+              // A plain image keeps the static GitHub Pages export portable.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={person.image} alt="" loading="lazy" decoding="async" />
+            ) : (
+              <span className="member-placeholder">{initials}</span>
+            )}
+          </span>
+        );
+
+        return (
+          <article className="member-card" key={person.name}>
+            {person.href ? (
+              <a href={person.href} aria-label={`${person.name}'s website`}>
+                {portrait}
+              </a>
+            ) : portrait}
+            <div className="member-copy">
               <strong>
-                {person.name}
+                {person.href ? <a href={person.href}>{person.name}</a> : person.name}
                 {person.year ? <span className="member-year"> ({person.year})</span> : null}
               </strong>
               {person.detail ? <small>{person.detail}</small> : null}
-            </span>
-          </>
-        );
-
-        return person.href ? (
-          <a className="member-card" href={person.href} key={person.name}>
-            {content}
-          </a>
-        ) : (
-          <div className="member-card" key={person.name}>
-            {content}
-          </div>
+              <span className="member-links">
+                {person.href ? (
+                  <a href={person.href}>
+                    {person.href.includes("linkedin.com") ? "LinkedIn" : "Website"} ↗
+                  </a>
+                ) : null}
+                {person.scholar ? <a href={person.scholar}>Scholar ↗</a> : null}
+              </span>
+            </div>
+          </article>
         );
       })}
     </div>

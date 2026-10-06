@@ -24,6 +24,7 @@ export type Person = {
   name: string;
   detail?: string;
   href?: string;
+  scholar?: string;
   image?: string;
   year?: string;
 };
@@ -217,48 +218,58 @@ export const publications: Publication[] = [
 
 publications.sort((a, b) => b.year - a.year);
 
+const scholarSearch = (name: string) =>
+  `https://scholar.google.com/scholar?q=${encodeURIComponent(`author:"${name}"`)}`;
+
 export const people = {
   phd: [
     {
       name: "Aayush Rajesh",
       detail: "Research summary forthcoming.",
       href: "https://aayush2003.github.io/",
+      scholar: scholarSearch("Aayush Rajesh"),
       image: "/people/aayush-rajesh.jpg",
     },
     {
       name: "Abhiram Gorle",
       detail: "Research summary forthcoming.",
       href: "https://abhiram3001.github.io/",
+      scholar: scholarSearch("Abhiram Rao Gorle"),
       image: "/people/abhiram-gorle.png",
     },
     {
       name: "Connor Ding",
       detail: "Research summary forthcoming.",
       href: "https://www.czsding.com/",
+      scholar: scholarSearch("Connor Ding"),
       image: "/people/connor-ding.png?v=20260909",
     },
     {
       name: "Jiwon Jeong",
       detail: "Research summary forthcoming.",
       href: "https://www.linkedin.com/in/jiwon-jeong-865b2422b/",
+      scholar: scholarSearch("Jiwon Jeong"),
       image: "/people/jiwon-jeong.png",
     },
     {
       name: "Matthew Ho",
       detail: "Research summary forthcoming.",
       href: "https://www.linkedin.com/in/ho-matthew-10",
+      scholar: scholarSearch("Matthew Ho"),
       image: "/people/matthew-ho.jpg",
     },
     {
       name: "Naomi Sagan",
       detail: "Research summary forthcoming.",
       href: "https://www.linkedin.com/in/naomisagan/",
+      scholar: scholarSearch("Naomi Sagan"),
       image: "/people/naomi-sagan.png?v=20260909",
     },
     {
       name: "Yasmine Omri",
       detail: "Research summary forthcoming.",
       href: "https://tambelab.stanford.edu/people/yasmine-omri",
+      scholar: scholarSearch("Yasmine Omri"),
       image: "/people/yasmine-omri.jpg",
     },
   ] satisfies Person[],
@@ -267,6 +278,7 @@ export const people = {
       name: "Jaeseok Byun",
       detail: "Seoul National University",
       href: "https://sites.google.com/view/jaeseokbyun",
+      scholar: scholarSearch("Jaeseok Byun"),
       image: "/people/jaeseok-byun-photo.png",
       year: "2025",
     },
@@ -274,6 +286,7 @@ export const people = {
       name: "Hao Kang",
       detail: "Georgia Institute of Technology",
       href: "https://haokang-timmy.github.io/",
+      scholar: scholarSearch("Hao Kang"),
       image: "/people/hao-kang.png",
       year: "2025",
     },
@@ -281,6 +294,7 @@ export const people = {
       name: "Szymon Kobus",
       detail: "Imperial College London",
       href: "https://www.imperial.ac.uk/information-processing-and-communications-lab/people/szymon-kobus/",
+      scholar: scholarSearch("Szymon Kobus"),
       image: "/people/szymon-kobus.jpg",
       year: "2025",
     },
@@ -290,18 +304,21 @@ export const people = {
       name: "Amit Yadav",
       detail: "Collaborator · formerly Meta",
       href: "https://sites.google.com/view/amit-yadav/home",
+      scholar: scholarSearch("Amit Kumar Singh Yadav"),
       image: "/people/amit-yadav.jpg",
     },
     {
       name: "Taesup Moon",
       detail: "Seoul National University",
       href: "https://ece.snu.ac.kr/en/research-faculty/faculty/fulltime?md=view&profid=p870",
+      scholar: scholarSearch("Taesup Moon"),
       image: "/people/taesup-moon.jpg",
     },
     {
       name: "Thierry Tambe",
       detail: "Stanford University",
       href: "https://tambelab.stanford.edu/people/thierry-tambe",
+      scholar: scholarSearch("Thierry Tambe"),
       image: "/people/thierry-tambe.jpg",
     },
   ] satisfies Person[],

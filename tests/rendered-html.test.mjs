@@ -79,6 +79,9 @@ test("renders the reconciled people directory", async () => {
   assert.match(html, /Leadership and recognition/);
   assert.match(html, /IEEE Fellow/);
   assert.match(html, /Founding Director of the Stanford Compression Forum/);
+  assert.match(html, /Website<!-- --> ↗/);
+  assert.match(html, /LinkedIn<!-- --> ↗/);
+  assert.match(html, /Scholar ↗/);
   for (const portrait of [
     "abhiram-gorle.png",
     "connor-ding.png",

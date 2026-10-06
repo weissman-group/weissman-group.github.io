@@ -2,6 +2,22 @@
 @import url("https://api.fontshare.com/css?f[]=switzer@400,500,600,700&display=swap");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Computer Modern";
+  src: url("https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/fonts/KaTeX_Main-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url("https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/fonts/KaTeX_Main-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+}
+
 :root {
   --paper: #f4f0e7;
   --paper-deep: #ebe4d6;
@@ -2541,7 +2557,7 @@ body,
 }
 
 .wordmark strong {
-  font-family: var(--serif);
+  font-family: "Computer Modern", var(--serif);
 }
 
 .wordmark strong {
@@ -3146,8 +3162,10 @@ a.editorial-row:hover .editorial-arrow {
 }
 
 .i3-destinations strong {
+  font-family: var(--sans);
   font-size: clamp(1.16rem, 1.45vw, 1.38rem);
   font-weight: 600;
+  letter-spacing: -0.018em;
 }
 
 .i3-destination-arrow {
@@ -3420,12 +3438,36 @@ a.editorial-row:hover .editorial-arrow {
   line-height: 1.2;
 }
 
+.member-copy strong a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .member-copy small {
   margin-top: 5px;
   color: var(--muted);
   font-family: var(--sans);
   font-size: 0.88rem;
   line-height: 1.42;
+}
+
+.member-links {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.member-links a {
+  color: var(--cardinal);
+  text-decoration-color: transparent;
+}
+
+.member-links a:hover {
+  text-decoration-color: currentColor;
 }
 
 .member-year {
