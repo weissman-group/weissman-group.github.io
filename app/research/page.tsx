@@ -15,7 +15,7 @@ export default function ResearchPage() {
     <main id="main-content">
       <PageHeader
         compact
-        eyebrow="Research · Four directions"
+        eyebrow="Research"
         title={
           <>
             Information is the <em>common language.</em>

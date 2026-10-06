@@ -23,9 +23,6 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="header-inner">
         <a className="wordmark" href="/" aria-label="Weissman Research Group home">
-          <span className="wordmark-mark" aria-hidden="true">
-            <span>I<sup>3</sup></span>
-          </span>
           <span>
             <strong>Weissman</strong>
             <small>Research Group</small>

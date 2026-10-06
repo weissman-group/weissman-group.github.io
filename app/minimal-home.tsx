@@ -69,13 +69,7 @@ export default function MinimalHome() {
     <main id="main-content" className="i3-home">
       <section className="i3-hero" aria-labelledby="i3-title">
         <div className="i3-hero-copy">
-          <p className="i3-affiliation">
-            Stanford University <span>·</span> Electrical Engineering
-          </p>
           <div className="i3-heading-lockup">
-            <span className="i3-symbol" aria-hidden="true">
-              I<sup>3</sup>
-            </span>
             <h1 id="i3-title">
               <span>Information,</span>
               <span>Intelligence</span>
