@@ -14,7 +14,7 @@ const navigation = [
 
 const moreNavigation = [
   { label: "Software & patents", href: "/software" },
-  { label: "Contact", href: "mailto:tsachy@stanford.edu" },
+  { label: "Contact", href: "/contact" },
   { label: "Courses", href: "/courses" },
 ];
 
@@ -75,12 +75,10 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-grid">
-        <div>
-          <p className="footer-title">Weissman Research Group</p>
-          <p className="footer-institution">
-            <a href="https://ee.stanford.edu/">Electrical Engineering ↗</a>
-            <span>Stanford University</span>
-          </p>
+        <div className="footer-brand">
+          <a className="footer-stanford" href="https://www.stanford.edu/">Stanford University</a>
+          <a className="footer-school" href="https://ee.stanford.edu/">Electrical Engineering ↗</a>
+          <p className="footer-group-name">Weissman Research Group</p>
         </div>
         <div>
           <p className="footer-label">Find us</p>
@@ -96,7 +94,7 @@ export function SiteFooter() {
           <p className="footer-label">Elsewhere</p>
           <a href="https://web.stanford.edu/~tsachy/">Faculty page ↗</a>
           <a href="https://compression.stanford.edu/">Compression Forum ↗</a>
-          <a href="mailto:tsachy@stanford.edu">Email ↗</a>
+          <a href="/contact">Contact ↗</a>
         </div>
       </div>
       <div className="footer-bottom">

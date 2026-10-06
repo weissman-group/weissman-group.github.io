@@ -54,6 +54,16 @@ export default function PeoplePage() {
           </div>
         </section>
 
+        <section className="recognition-section" aria-labelledby="recognition-title">
+          <h2 id="recognition-title">Leadership and recognition</h2>
+          <ol className="recognition-list">
+            <li><span>01</span><p>Robert and Barbara Kleist Professor in the School of Engineering</p></li>
+            <li><span>02</span><p>IEEE Fellow</p></li>
+            <li><span>03</span><p>Founding Director of the Stanford Compression Forum</p></li>
+            <li><span>04</span><p>Recipient of research and teaching distinctions, including best-paper awards from the IEEE Information Theory and Communications Societies</p></li>
+          </ol>
+        </section>
+
         <section className="roster-section" aria-labelledby="current-members">
           <h2 id="current-members">Current</h2>
 

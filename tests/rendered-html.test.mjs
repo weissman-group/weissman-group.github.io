@@ -41,6 +41,7 @@ test("exports every public route", async () => {
     "outreach",
     "media",
     "community",
+    "contact",
   ];
   for (const route of routes) {
     const html = await readRoute(route);
@@ -75,6 +76,9 @@ test("renders the reconciled people directory", async () => {
   assert.match(html, /Divija Hasteer/);
   assert.doesNotMatch(html, /Atindra Jha|MS students|Undergraduate researchers/i);
   assert.match(html, /<img[^>]+alt="Tsachy Weissman"/i);
+  assert.match(html, /Leadership and recognition/);
+  assert.match(html, /IEEE Fellow/);
+  assert.match(html, /Founding Director of the Stanford Compression Forum/);
   for (const portrait of [
     "abhiram-gorle.png",
     "connor-ding.png",
@@ -114,7 +118,15 @@ test("renders the standalone news, outreach, and media indexes", async () => {
   ]);
 
   assert.match(news, /Group updates/);
-  assert.match(news, /No announcements have been posted yet/);
+  assert.match(news, /Summer internships at Amazon and NVIDIA/);
+  assert.match(news, /SHTEM summer interns/);
+  assert.match(news, /Aayush advances to Ph\.D\. candidacy/);
+  assert.match(news, /2026 Knight-Hennessy Scholars cohort/);
+  assert.match(news, /Amazon’s neurosymbolic team/);
+  assert.match(news, /Information-computation trade-offs/);
+  assert.match(news, /Three group presentations at ISIT 2025/);
+  assert.match(news, /Three papers accepted at ISIT 2025/);
+  assert.match(news, /Ann Arbor/);
   assert.match(outreach, /Stanford Compression Forum/);
   assert.match(outreach, /STEM to SHTEM/);
   assert.match(media, /Selected coverage/);
@@ -124,4 +136,16 @@ test("renders the standalone news, outreach, and media indexes", async () => {
     assert.match(html, /editorial-page/);
     assert.doesNotMatch(html, /media-home|media-signal|outreach-orbit|outreach-card|news-intro/);
   }
+});
+
+test("renders the dedicated contact directory", async () => {
+  const contact = await readRoute("contact");
+
+  assert.match(contact, /Tsachy Weissman/);
+  assert.match(contact, /tsachy@stanford\.edu/);
+  assert.match(contact, /Shea Goodner/);
+  assert.match(contact, /sgoodner@stanford\.edu/);
+  assert.match(contact, /Packard Building/);
+  assert.match(contact, /Room 256/);
+  assert.match(contact, /Room 259/);
 });
