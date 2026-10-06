@@ -21,7 +21,7 @@ const newsItems: NewsItem[] = [
   {
     date: "June 2026",
     title: "Summer internships at Amazon and NVIDIA",
-    text: "Jiwon and Naomi have begun internships at Amazon, Matthew has joined Amazon’s neurosymbolic team, and Yasmine has joined NVIDIA. Congratulations to all four!",
+    text: "Jiwon, Matt and Naomi have begun internships at Amazon, and Yasmine has joined NVIDIA for the summer. Congratulations to all four!",
   },
   {
     date: "June 2026",
@@ -29,15 +29,15 @@ const newsItems: NewsItem[] = [
     text: "We are delighted to welcome Ansh, Arushi, Ian, Yuji, and Zoya to the group as summer interns through the SHTEM program.",
     href: "https://compression.stanford.edu/outreach/shtem-summer-internships-high-schoolers-and-community-college-students",
   },
-  {
-    date: "June 2026",
-    title: "Congratulations, Abhiram",
-    text: "Congratulations to Abhiram on completing his M.S. degree in Electrical Engineering!",
-  },
+  // {
+  //   date: "June 2026",
+  //   title: "Congratulations, Abhiram",
+  //   text: "Congratulations to Abhiram on completing his M.S. degree in Electrical Engineering!",
+  // },
   {
     date: "May 2026",
     title: "Abhiram joins the 2026 Knight-Hennessy Scholars cohort",
-    text: "Congratulations to Abhiram on being named to the 2026 cohort of Knight-Hennessy Scholars!",
+    text: "Congratulations to Abhiram on being selected to the 2026 cohort of Knight-Hennessy Scholars!",
     href: "https://knight-hennessy.stanford.edu/people/abhiram-gorle",
   },
   {
@@ -46,9 +46,9 @@ const newsItems: NewsItem[] = [
     text: "Congratulations to Aayush on passing his qualifying examinations and becoming a Ph.D. candidate in Electrical Engineering!",
   },
   {
-    date: "2026 · Forthcoming",
+    date: "Feb 2026",
     title: "Information-computation trade-offs in non-linear transforms",
-    text: "Congratulations to Connor, Abhiram, Jiwon, Naomi, and Tsachy—their work on the interplay between representation, computation, and compression is forthcoming in Philosophical Transactions of the Royal Society A.",
+    text: "Congratulations to Connor, Abhiram, Jiwon, and Naomi on the publication of their paper in Philosophical Transactions of the Royal Society A. The paper explores trade-offs between compression efficiency and computational cost, with implications for classification, denoising, and generative AI.",   
     href: "https://arxiv.org/abs/2506.15948",
   },
   {
