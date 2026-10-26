@@ -45,6 +45,12 @@ reference, and provenance-footnote fragments are forwarded to the blog.
 The wordmark returns to the landing page, with the visual proof available from its
 navigation link. No password is required. The noindex policy is retained.
 
+The approved 26 October landing copy is maintained in `ck-landing-page.mjs`.
+It removes the landing eyebrow, gives the setup paragraph black text, and
+preserves the two primary reading choices and their approved descriptions.
+The publisher reapplies the copy and scoped styles on each export. The Home
+navigation added in Matthew's landing-page PR is retained on all six pages.
+
 `ck-reader-refinements.mjs` applies these rules on every repack, removes the
 obsolete working-draft paragraph without removing the calculations toggle,
 and hides the remaining author-only notation control. It also clarifies the

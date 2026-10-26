@@ -5,6 +5,19 @@ import test from "node:test";
 const clientRoot = new URL("../dist/client/", import.meta.url);
 const appRoot = new URL("../app/", import.meta.url);
 
+test("exports the approved shared CK landing page without the removed label", async () => {
+  const home = await readFile(new URL("ck/home.html", clientRoot), "utf8");
+  const css = await readFile(new URL("ck/edition.css", clientRoot), "utf8");
+  assert.match(home, /<h1>What is the most informative bit in a noisy string\?<\/h1>/);
+  assert.match(home, /It might seem obvious that combining all the bits should help… until you try to beat simply copying one coordinate\./);
+  assert.match(home, /An exposition of our AI-assisted research effort/);
+  assert.match(home, /A graphical visualization of the proof and its dependencies/);
+  assert.doesNotMatch(home, /Information theory · Courtade–Kumar|class="ck-eyebrow"/);
+  assert.match(home, /href="home.html" aria-current="page">Home/);
+  assert.match(home, /edition.css\?v=landing-20261026/);
+  assert.match(css, /\.ck-home \.ck-home-deck\{color:#000;/);
+});
+
 test("exports the public CK blog and preserves landing-page and direct proof routing", async () => {
   const [entry, blog] = await Promise.all([
     readFile(new URL("ck/index.html", clientRoot), "utf8"),

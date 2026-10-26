@@ -61,7 +61,7 @@ for name in ['home.html','blog.html','lean-writeup.html','prompting.html','ai-di
 for path in src.rglob('*'):
  if path.is_file() and (path.suffix in ['.css','.woff','.woff2','.ttf'] or ('vendor' in path.parts or 'blog-assets' in path.parts) and ('LICENSE' in path.name.upper() or 'OFL' in path.name.upper())):
   rel=path.relative_to(src);target=out/rel;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(path,target)
-# Keep the blog as the ordinary entry point, without breaking explicit proof
+# Keep the shared landing page as the entry, without breaking explicit proof
 # links, and apply the reader-only publication refinements on every repack.
 refiner=Path(__file__).with_name('ck-reader-refinements.mjs')
 pages=json.loads(subprocess.run(['node',str(refiner),'--json'],input=json.dumps(pages),text=True,capture_output=True,check=True).stdout)
@@ -72,6 +72,7 @@ for css_name in ['styles.css','blog-assets/styles.css']:
 public_reader=Path(__file__).with_name('ck-public-pages.mjs')
 pages=json.loads(subprocess.run(['node',str(public_reader),'--json'],input=json.dumps(pages),text=True,capture_output=True,check=True).stdout)
 edition=out/'edition.css'
+edition.write_text(subprocess.run(['node',str(refiner),'--edition-css'],input=edition.read_text(),text=True,capture_output=True,check=True).stdout)
 mobile_rule='@media(max-width:380px){.ck-primary{flex-wrap:wrap;gap:0 12px;font-size:12px;max-width:100%;min-width:0;flex-shrink:1}}'
 if mobile_rule not in edition.read_text():edition.write_text(edition.read_text()+'\n'+mobile_rule+'\n')
 # Recheck snapshots so a concurrent author edit never silently misses publication.

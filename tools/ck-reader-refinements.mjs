@@ -1,6 +1,7 @@
 // Shared by the public reader publisher and its regression tests. No complete page
 // or password is stored here. Explicit proof-node and guide links remain available.
 import { refineCKProofPage } from './ck-proof-copyedits.mjs';
+import { refineCKLandingPage, refineCKLandingStyles } from './ck-landing-page.mjs';
 
 export function ckReaderDestination(search, hash) {
   const query = new URLSearchParams(search);
@@ -61,7 +62,7 @@ function sharedNavigation(page, name) {
     if (!page.includes('href="edition.css')) page = page.replace('</head>', '<link rel="stylesheet" href="edition.css?v=shared-nav-1"></head>');
     if (!page.includes('class="ck-primary"')) page = page.replace(/<header>[\s\S]*?<nav aria-label="Document actions">/, '<header><a class="document-label" href="home.html">Lean certificate writeup</a>' + nav + '<nav aria-label="Document actions">');
   }
-  return page.replace(/href="edition.css[^"]*"/g, 'href="edition.css?v=shared-nav-1"');
+  return page.replace(/href="edition.css[^"]*"/g, 'href="edition.css?v=landing-20261026"');
 }
 
 export function refineCKPages(input) {
@@ -155,7 +156,7 @@ export function refineCKPages(input) {
   if (pages['index.html'].includes('const PAPER=')) {
     pages['index.html'] = refineCKProofPage(pages['index.html']);
   }
-  pages['home.html'] = pages['home.html'].replace(/<section class="ck-supporting[\s\S]*?(?=<p class="ck-home-authors">)/, `<section class="ck-supporting ck-usage" aria-labelledby="usage-heading"><h2 id="usage-heading">AI Usage</h2><div><a href="ai-disclosure.html">Read the AI Usage statement →</a><p>A description of which models we used and how we used them</p></div></section><section class="ck-supporting" aria-labelledby="lean-heading"><h2 id="lean-heading">Lean certificate work</h2><div><a href="lean-writeup.html">Read the Lean certificate writeup →</a><p>A description of how each of the nine Lean certificate families was built in the formalization effort</p></div></section><section class="ck-supporting" aria-labelledby="prompt-heading"><h2 id="prompt-heading">Prompting</h2><div><a href="prompting.html">Read the original prompt →</a><p>The prompt we gave to GPT 5.6 Sol that would eventually result in a solution to the Courtade-Kumar conjecture</p></div></section>`);
+  pages['home.html'] = refineCKLandingPage(pages['home.html']);
   return pages;
 }
 
@@ -169,4 +170,10 @@ if (process.argv.includes('--css')) {
   let input = '';
   for await (const chunk of process.stdin) input += chunk;
   process.stdout.write(refineCKBlogStyles(input));
+}
+
+if (process.argv.includes('--edition-css')) {
+  let input = '';
+  for await (const chunk of process.stdin) input += chunk;
+  process.stdout.write(refineCKLandingStyles(input));
 }

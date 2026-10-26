@@ -66,3 +66,14 @@ html:has(body.ck-blog){scroll-padding-top:120px}
 .ck-writeup>header nav[aria-label="Document actions"]{margin-left:0}
 @media(max-width:1000px){.ck-proof>header .search-wrap{order:4;flex-basis:100%;max-width:none}.ck-proof>header .ck-primary{flex:1;justify-content:flex-end}}
 @media(max-width:760px){.ck-proof>header .ck-primary{order:3;flex-basis:100%;justify-content:flex-start}.ck-writeup>header .document-label{display:block}.ck-writeup>header .ck-primary{flex-basis:100%;margin-left:0}.ck-primary{gap:0 14px}}
+
+/* CK landing styles: start */
+.ck-home h1{max-width:1000px;text-wrap:balance}
+.ck-home .ck-home-deck{color:#000;margin-bottom:14px}
+.ck-home-context{max-width:760px;font:400 15px/1.65 var(--sans);color:#5b5853;margin:0 0 46px}
+.ck-writeup article code{overflow-wrap:anywhere}
+@media(max-width:1000px){.ck-writeup article :is(h1,h2,h3,h4,p[id]){scroll-margin-top:175px}}
+@media(max-width:760px){.ck-home-context{font-size:14px;margin-bottom:34px}}
+@media(max-width:760px){html:has(body.ck-blog){scroll-padding-top:200px}}
+@media(max-width:360px){html:has(body.ck-blog){scroll-padding-top:240px}.ck-writeup article :is(h1,h2,h3,h4,p[id]){scroll-margin-top:215px}}
+/* CK landing styles: end */
