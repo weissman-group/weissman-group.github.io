@@ -62,9 +62,17 @@ the blog opening explains the contextual links into the visual proof map.
 The regression suite exercises both default and explicit visual routing.
 
 The opening includes one sentence recording that the conjecture was posed in
-2013 and remained open until the recent 2026 proofs. The desktop contents flow
-down items 1–4 on the left and 5–8 on the right, preserving DOM/keyboard order.
-Mobile readers see one sequential column. The packager reapplies both changes.
+2013 and remained open until the recent 2026 proofs.
+
+`ck-blog-navigation.mjs` reuses the original contents and section anchors as a
+sticky left rail at widths of at least 1,200px. On narrower screens, the same
+outline becomes a compact sticky Contents disclosure showing the current section.
+The active section updates on scrolling without rewriting the URL. The actual
+header height determines sticky and anchor offsets. Native links, the subsection
+disclosure, keyboard access, hash history, and the no-JavaScript in-flow outline
+are retained. Print output has no sticky navigation. The publisher embeds the
+scoped styles and script on every export, so editing an unused external script
+cannot silently leave the published blog unchanged.
 
 The final editorial pass also applies `ck-proof-copyedits.mjs` to the reader's
 structured proof data. It aligns 13 scoped dependency fields with the current

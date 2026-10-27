@@ -2,6 +2,7 @@
 // or password is stored here. Explicit proof-node and guide links remain available.
 import { refineCKProofPage } from './ck-proof-copyedits.mjs';
 import { refineCKLandingPage, refineCKLandingStyles } from './ck-landing-page.mjs';
+import { refineCKBlogNavigation } from './ck-blog-navigation.mjs';
 
 export function ckReaderDestination(search, hash) {
   const query = new URLSearchParams(search);
@@ -157,6 +158,7 @@ export function refineCKPages(input) {
     pages['index.html'] = refineCKProofPage(pages['index.html']);
   }
   pages['home.html'] = refineCKLandingPage(pages['home.html']);
+  pages['blog.html'] = refineCKBlogNavigation(pages['blog.html']);
   return pages;
 }
 
